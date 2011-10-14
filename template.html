@@ -1,53 +1,262 @@
 <!DOCTYPE html>
 
 <meta charset="utf-8">
-<title>The Title Of Your Presentation</title>
+<title>Testing Toolbox</title>
 
 <!-- Your Slides -->
 <!-- One section is one slide -->
 
 <section>
     <!-- This is the first slide -->
-    <h1>My Presentation</h1>
-    <footer>by John Doe</footer>
+    <h1>Testing Toolbox</h1>
+    <footer>
+    Ben Oakes<br />
+    @benjaminoakes<br />
+    hedgeye.com
+    </footer>
 </section>
 
 <section>
-    <h2>Part one</h2>
-</section>
-
-<section>
-    <h3>An incremental list</h3>
-    <ul class="incremental">
-      <li>Item 1
-      <li>Item 2
-      <li>Item 3
+    <h3>I want to...</h3>
+    <ul>
+      <li>...give you a better toolset
+      <li>...help you test your apps more effectively
+      <li>...give you something you can use tomorrow
     </ul>
 </section>
 
 <section>
-  <q>
-    Soothe us with sweet lies. Is that a cooking show? No! I want to
-    live! There are still too many things I don't own!
-  </q>
+    <h2>Why do we test?</h2>
 </section>
 
 <section>
-    <h2>Part two</h2>
+    <h2>We don't want to be this guy...</h2>
 </section>
 
 <section>
-    <h3>An image</h3>
-    <img src="http://placekitten.com/g/800/600">
+    <img src="interesting_tester.jpeg" style="left: 15%; width: 70%; height: 100%;  margin: 0 auto;">
 </section>
 
 <section>
-    <h3>A video</h3>
-    <video src="http://videos-cdn.mozilla.net/brand/Mozilla_Firefox_Manifesto_v0.2_640.webm"></video>
+    <h3>Pros</h3>
+    <ul>
+      <li>Feel safe deploying
+      <li>Maintainability
+      <li>Better designs
+    </ul>
 </section>
 
 <section>
-    <h2>End!</h2>
+    <h3>Cons</h3>
+    <ul>
+      <li>Bad tests == harder maintenance
+      <li>Bad code?  Likely no one tested it.
+      <li>Takes time
+      <li>Perception of low ROI
+    </ul>
+</section>
+
+<section>
+    <h2>High-Level,<br />High-ROI Testing</h2>
+</section>
+
+<section>
+    <h4>gem 'tarantula' # 'tarantula-rails3'</h4>
+
+    <ul>
+    <li>"Fuzzy spider" your site
+    <li>Crawl links, fuzz test forms
+    <li>Find 404s, 500s, etc
+    <li>Teach it to log in
+    <li>Set it and forget it (until you introduce a bug)
+    </ul>
+</section>
+
+<section>
+    <h4>gem 'jasmine'</h4>
+    <ul>
+    <li>"rspec for JavaScript"
+    </ul>
+
+    <h4>github.com/ibolmo/jasmine-jstd-adapter</h4>
+    <ul>
+    <li>Run your specs on IE 6+, iPhone, Chrome, Firefox automatically
+    <li>Even with 1 spec, you'll find weird IE problems quicker (e.g., syntax)
+    </ul>
+</section>
+
+<section>
+    <h4>Browser Simulators</h4>
+    <ul>
+    <li>Hook 'em up to JSTD, they become Jasmine spec runners!
+    <li>IETester (IE5.5+ in a single Windows app)
+    <li>Apple's iOS Simulator (iPhone + iPad, comes in iOS SDK on the Mac)
+    <li>BlackBerry simulator (painful)
+    <li>Android Emulator (Android SDK)
+    </ul>
+</section>
+
+<section>
+    <h4>Screen Reader Simulators</h4>
+    <ul>
+    <li>On a Mac?  You have one built into Safari
+    <li>Try out your site and see what the blind get
+    <li><a href="http://www.456bereastreet.com/archive/200505/voiceover_and_safari_screen_reading_on_the_mac/">456 Berea Street article</a>
+    </ul>
+</section>
+
+<section>
+    <h4>Email Simulators</h4>
+    <ul>
+    <li>Email on Acid
+    <li>emailonacid.com
+    <li>Paid, but worth it if you send a lot of email
+    <li>See all those Outlook bugs in one place
+    <li>Their Blackberry simulator sucks :(
+    </ul>
+</section>
+
+<section>
+    <h4>seleniumhq.org/projects/ide</h4>
+    <ul>
+    <li>Record your actions in a browser, make assertions
+    <li>Use JavaScript when you need more logic
+    </ul>
+</section>
+
+<section>
+    <h2>Low-Level Testing, Accelerated</h2>
+</section>
+
+<section>
+    <h4>Pick one: "rspec" or "test/unit"</h4>
+    <ul>
+    <li>I learned on test/unit, but our team uses rspec
+    <li>Unit test your code
+    <li>Obvious choice
+    <li>Using test/unit?
+    <ul>
+      <li>gem 'shoulda'
+      <li>gem 'mocha'
+    </ul>
+    </ul>
+</section>
+
+<section>
+    <h4>gem 'autotest' # 'ZenTest'</h4>
+    <ul>
+    <li>Runs your tests as soon as you change then
+    <li>Leave it up on a separate monitor
+    </ul>
+    <h4>gem 'guard'</h4>
+    <ul>
+    <li>An alternative
+    <li>Does more than tests
+    </ul>
+</section>
+
+<section>
+<h4>gem 'timecop'</h4>
+<ul>
+<li>Make time-based tests a breeze
+<li><code>Timecop.travel</code> and  <code>Timecop.freeze</code>
+</ul>
+<footer>
+<pre><code>
+d = Date.parse('1999-12-31')
+Timecop.freeze(d) do
+  party
+end</code></pre>
+</footer>
+</section>
+
+<section>
+<h4>gem 'fakeweb'</h4>
+<h4>gem 'webmock'</h4>
+<ul>
+<li>Easily stub network interactions
+<li>Usually works, but not in all cases (stupid <code>soap4r</code>)
+<li>Great for testing integration with web services
+<li>Best used in combination with...
+</ul>
+</section>
+
+<section>
+<h4>gem 'vcr'</h4>
+<ul>
+<li>Record HTTP interactions to cassettes (<code>.yml</code> files)
+<li>Replay them during future test runs
+<li>Fast, deterministic, accurate tests
+<li>Saves tons of time
+</ul>
+<footer>
+<pre><code>VCR.use_cassette('ex') do
+  # Net::HTTP.get...
+end
+</code></pre>
+</footer>
+</section>
+
+<section>
+<h4>gem 'fakefs'</h4>
+<ul>
+<li>A fake filesystem
+<li>Refactoring to use <code>mkdir_p</code> instead of <code>mkdir</code> doesn't break your test!
+<li>I don't use it too often, but nice to have handy
+</ul>
+<footer>
+<pre><code>
+FakeFS do
+  # your code
+end
+</code></pre>
+</footer>
+</section>
+
+<section>
+<h4>gem 'factory_girl_rails'</h4>
+<ul>
+<li>Better than fixtures
+<li>Build objects for testing
+<li>Powerful definitions
+</ul>
+<footer>
+<pre><code>
+FactoryGirl.define do
+  factory :user do
+    first_name 'John'
+    last_name  'Doe'
+  end
+end
+</code></pre>
+</footer>
+</section>
+
+<section>
+<h4>gem 'fabrication'</h4>
+<ul>
+<li><code>factory_girl</code> has a Rails bias
+<li><code>fabrication</code> is up and coming
+<li>I haven't used it much but it looks awesome
+</ul>
+<footer>
+<pre><code>
+class Person; end
+Fabricator(:person) do
+  name 'Greg Graffin'
+  profession 'Professor'
+end
+</code></pre>
+</footer>
+</section>
+
+<section>
+    <h2>Thanks!</h2>
+    <footer>
+	  <p>Any questions?<p>
+	  <p><a href="http://twitter.com/benjaminoakes">@benjaminoakes</a>
+    <p>I'll tweet a link to the slides</p>
+    </footer>
 </section>
 
 <!-- Your Style -->
@@ -75,7 +284,7 @@
   }
 
   ul {
-      margin: 50px 200px;
+      margin: 50px 100px;
   }
 
   q {
