@@ -18,7 +18,7 @@
 <section>
     <h3>I want to...</h3>
     <ul>
-      <li>...give you a better toolset
+      <li>...give you a better set of testing tools
       <li>...help you test your apps more effectively
       <li>...give you something you can use tomorrow
     </ul>
@@ -49,9 +49,9 @@
     <h3>Cons</h3>
     <ul>
       <li>Bad tests == harder maintenance
-      <li>Bad code?  Likely no one tested it.
       <li>Takes time
-      <li>Perception of low ROI
+      <li>Thus, perception of low ROI
+      <li>But what is high-ROI?
     </ul>
 </section>
 
@@ -74,12 +74,12 @@
 <section>
     <h4>gem 'jasmine'</h4>
     <ul>
-    <li>"rspec for JavaScript"
+    <li>"rspec for JS" (unit testing lib)
     </ul>
 
-    <h4>github.com/ibolmo/jasmine-jstd-adapter</h4>
+    <h4>jasmine-jstd-adapter (jsTestDriver)</h4>
     <ul>
-    <li>Run your specs on IE 6+, iPhone, Chrome, Firefox automatically
+    <li>Auto-run your specs on IE 6+, iPhone, Firefox, etc
     <li>Even with 1 spec, you'll find weird IE problems quicker (e.g., syntax)
     </ul>
 </section>
@@ -89,35 +89,36 @@
     <ul>
     <li>Hook 'em up to JSTD, they become Jasmine spec runners!
     <li>IETester (IE5.5+ in a single Windows app)
-    <li>Apple's iOS Simulator (iPhone + iPad, comes in iOS SDK on the Mac)
-    <li>BlackBerry simulator (painful)
+    <li>Apple's iOS Simulator (iPhone + iPad, in iOS SDK)
     <li>Android Emulator (Android SDK)
+    <li>BlackBerry simulator (painful)
     </ul>
 </section>
 
 <section>
     <h4>Screen Reader Simulators</h4>
     <ul>
+    <li>Another type of browser
     <li>On a Mac?  You have one built into Safari
     <li>Try out your site and see what the blind get
-    <li><a href="http://www.456bereastreet.com/archive/200505/voiceover_and_safari_screen_reading_on_the_mac/">456 Berea Street article</a>
+    <li>Details: <a href="http://www.456bereastreet.com/archive/200505/voiceover_and_safari_screen_reading_on_the_mac/">456 Berea Street article</a>
     </ul>
 </section>
 
 <section>
     <h4>Email Simulators</h4>
     <ul>
-    <li>Email on Acid
-    <li>emailonacid.com
+    <li>Email on Acid (emailonacid.com)
     <li>Paid, but worth it if you send a lot of email
+    <li>Tests Gmail, Yahoo Mail, Thunderbird, Lotus Notes, etc
     <li>See all those Outlook bugs in one place
-    <li>Their Blackberry simulator sucks :(
     </ul>
 </section>
 
 <section>
-    <h4>seleniumhq.org/projects/ide</h4>
+    <h4>Selenium IDE</h4>
     <ul>
+    <li>Testing a GUI?  Or no tests?  Put a Selenium script behind it
     <li>Record your actions in a browser, make assertions
     <li>Use JavaScript when you need more logic
     </ul>
@@ -128,11 +129,8 @@
 </section>
 
 <section>
-    <h4>Pick one: "rspec" or "test/unit"</h4>
+    <h3>Pick one: "rspec" or "test/unit"</h3>
     <ul>
-    <li>I learned on test/unit, but our team uses rspec
-    <li>Unit test your code
-    <li>Obvious choice
     <li>Using test/unit?
     <ul>
       <li>gem 'shoulda'
@@ -173,10 +171,10 @@ end</code></pre>
 <h4>gem 'fakeweb'</h4>
 <h4>gem 'webmock'</h4>
 <ul>
-<li>Easily stub network interactions
-<li>Usually works, but not in all cases (stupid <code>soap4r</code>)
+<li>Easily stub HTTP interactions
 <li>Great for testing integration with web services
-<li>Best used in combination with...
+<li>Sucks because you have to copypasta the XML, JSON, etc
+<li>So, best used in combination with...
 </ul>
 </section>
 
@@ -247,6 +245,14 @@ Fabricator(:person) do
 end
 </code></pre>
 </footer>
+</section>
+
+<section>
+    <h2>This is what's in my toolbox</h2>
+</section>
+
+<section>
+    <h2>I hope I've given you something you can use tomorrow</h2>
 </section>
 
 <section>
